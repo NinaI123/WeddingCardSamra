@@ -223,18 +223,39 @@ function setLanguage(lang) {
 
 
     // Update text content
-    const elements = document.querySelectorAll('[data-i18n]');
+    // const elements = document.querySelectorAll('[data-i18n]');
+    // elements.forEach(el => {
+    //     const key = el.getAttribute('data-i18n');
+    //     const keys = key.split('.');
+    //     let value = t;
+    //     keys.forEach(k => value = value[k]);
+
+    //     if (value) {
+    //         // Preserve HTML for certain keys/icons if needed, but for now textContent is safer
+    //         // unless we specifically need HTML structure (like icons inside buttons)
+    //         if (el.tagName === 'BUTTON') {
+    //             // Special handling for buttons with icons
+    //             const icon = el.querySelector('svg');
+    //             el.childNodes.forEach(node => {
+    //                 if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+    //                     node.textContent = " " + value + " ";
+    //                 }
+    //             });
+    //         } else {
+    //             el.textContent = value;
+    //         }
+    //     }
+    // });
+       const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
         const keys = key.split('.');
         let value = t;
-        keys.forEach(k => value = value[k]);
+        keys.forEach(k => value = value?.[k]);
 
-        if (value) {
-            // Preserve HTML for certain keys/icons if needed, but for now textContent is safer
-            // unless we specifically need HTML structure (like icons inside buttons)
+        // Only update if translation exists
+        if (value !== undefined && value !== null && value !== "") {
             if (el.tagName === 'BUTTON') {
-                // Special handling for buttons with icons
                 const icon = el.querySelector('svg');
                 el.childNodes.forEach(node => {
                     if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
@@ -246,6 +267,7 @@ function setLanguage(lang) {
             }
         }
     });
+
 
     // Update placeholders
     document.querySelectorAll('[placeholder]').forEach(el => {
