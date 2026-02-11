@@ -207,11 +207,11 @@ function setLanguage(lang) {
         ? "px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-teatro-gold text-teatro-dark font-bold shadow-lg transform scale-105"
         : "px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-white/50 text-teatro-warm hover:bg-white hover:text-teatro-gold";
 
-    document.getElementById('lang-it').className = lang === 'ur'
+    document.getElementById('lang-ur').className = lang === 'ur'
         ? "px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-teatro-gold text-teatro-dark font-bold shadow-lg transform scale-105"
         : "px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-white/50 text-teatro-warm hover:bg-white hover:text-teatro-gold";
 
-    document.getElementById('lang-it').className = lang === 'hi'
+    document.getElementById('lang-hi').className = lang === 'hi'
         ? "px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-teatro-gold text-teatro-dark font-bold shadow-lg transform scale-105"
         : "px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-white/50 text-teatro-warm hover:bg-white hover:text-teatro-gold";
 
