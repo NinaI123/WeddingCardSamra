@@ -16,7 +16,9 @@ const translations = {
             bismillah: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
             bismillahTrans: "With the Blessings of Allah, The Most Gracious, The Most Merciful",
             request: "Request the Honor of Your Presence and Blessings on the auspicious occasion of the Wedding Ceremony of their beloved Granddaughter",
-            tap: "Tap to continue"
+            tap: "Tap to continue",
+            bridename: "Samra Fatima",
+            groomname: "Abdul Sattar"
         },
         countdown: {
             days: "Days",
@@ -63,7 +65,9 @@ const translations = {
             bismillah: "بِسْمِ اللّٰہِ الرَّحْمٰنِ الرَّحِیْم",
             bismillahTrans: "اللہ کے بابرکت نام سے، جو نہایت مہربان اور رحم کرنے والا ہے",
             request: "آپ کی باعزت موجودگی کی درخواست کرتے ہیں نکاح کی تقریب میں",
-            tap: "جاری رکھنے کے لیے ٹیپ کریں"
+            tap: "جاری رکھنے کے لیے ٹیپ کریں",
+            bridename: "سمرا فاطمہ",
+            groomname: "عبد الستار"
         },
         countdown: {
             days: "دن",
@@ -110,7 +114,9 @@ const translations = {
         bismillah: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
         bismillahTrans: "अल्लाह के नाम से, जो बड़ा मेहरबान और रहमत करने वाला है",
         request: "आपकी सम्मानित उपस्थिति का अनुरोध करते हैं निकाह समारोह में",
-        tap: "जारी रखने के लिए टैप करें"
+        tap: "जारी रखने के लिए टैप करें",
+        bridename: "Samra Fatima",
+        groomname: "Abdul Sattar"
     },
     countdown: {
         days: "दिन",
