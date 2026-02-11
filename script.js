@@ -15,7 +15,7 @@ const translations = {
         hero: {
             bismillah: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
             bismillahTrans: "With the Blessings of Allah, The Most Gracious, The Most Merciful",
-            request: "Request the Honor of Your Presence and Blessings on the auspicious occasion of the Wedding Ceremony of their beloved grandaughter",
+            request: "Request the Honor of Your Presence and Blessings on the auspicious occasion of the Wedding Ceremony of their beloved Granddaughter",
             tap: "Tap to continue"
         },
         countdown: {
@@ -58,53 +58,102 @@ const translations = {
             submit: "Confirm Attendance"
         }
     },
-    it: {
+    ur: {
         hero: {
-            bismillah: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
-            bismillahTrans: "Con le benedizioni di Allah, il Clemente, il Misericordioso",
-            request: "Richiedono l'onore della tua presenza alla cerimonia Nikah di",
-            tap: "Tocca per continuare"
+            bismillah: "بِسْمِ اللّٰہِ الرَّحْمٰنِ الرَّحِیْم",
+            bismillahTrans: "اللہ کے بابرکت نام سے، جو نہایت مہربان اور رحم کرنے والا ہے",
+            request: "آپ کی باعزت موجودگی کی درخواست کرتے ہیں نکاح کی تقریب میں",
+            tap: "جاری رکھنے کے لیے ٹیپ کریں"
         },
         countdown: {
-            days: "Giorni",
-            hours: "Ore",
-            minutes: "Minuti",
-            seconds: "Secondi"
+            days: "دن",
+            hours: "گھنٹے",
+            minutes: "منٹ",
+            seconds: "سیکنڈ"
         },
         venue: {
-            title: "Location",
-            address: "Rana Pratap Marg, Hazratganj, Lucknow, Uttar Pradesh"
+            title: "مقام",
+            address: "رانا پرتاپ مارگ، حضرت گنج، لکھنؤ، اتر پردیش"
         },
         dressCode: {
-            title: "Dress Code",
-            description: "Richiesto abbigliamento formale"
+            title: "ڈریس کوڈ",
+            description: "مہربانی فرما کر باوقار/رسمی لباس زیب تن کریں"
         },
         songRequest: {
-            title: "Aiutaci a creare la nostra playlist!",
-            subtitle: "Suggerisci una canzone per il nostro matrimonio!",
-            namePlaceholder: "Il tuo nome",
-            songPlaceholder: "Titolo della canzone",
-            artistPlaceholder: "Nome dell'artista",
-            eventLabel: "Quale evento?",
-            submit: "Invia richiesta"
+            title: "ہماری پلے لسٹ بنانے میں ہماری مدد کریں!",
+            subtitle: "ہمارے شادی کے لیے ایک گانا تجویز کریں!",
+            namePlaceholder: "آپ کا نام",
+            songPlaceholder: "گانے کا عنوان",
+            artistPlaceholder: "فنکار کا نام",
+            eventLabel: "کس موقع کے لیے؟",
+            submit: "درخواست جمع کریں"
         },
         blessings: {
-            title: "Inondaci con le tue Duas e Benedizioni",
-            namePlaceholder: "Il tuo nome",
-            messagePlaceholder: "Scrivi un messaggio o dua...",
-            submit: "Invia benedizione"
+            title: "اپنی دعاؤں اور نیک تمناؤں سے ہمیں نوازیں",
+            namePlaceholder: "آپ کا نام",
+            messagePlaceholder: "اپنا پیغام یا دعا لکھیں...",
+            submit: "دعا بھیجیں"
         },
         rsvp: {
             title: "RSVP",
-            name: "Nome e Cognome",
-            email: "Indirizzo Email",
-            attendance: "Parteciperai?",
-            attending: "Accetta con gioia",
-            declining: "Declina con dispiacere",
-            message: "Messaggio per gli sposi",
-            submit: "Conferma presenza"
+            name: "نام اور خاندانی نام",
+            email: "ای میل پتہ",
+            attendance: "کیا آپ شرکت کریں گے؟",
+            attending: "خوشی کے ساتھ قبول کرتا/کرتی ہوں",
+            declining: "افسوس کے ساتھ معذرت",
+            message: "دولہا دلہن کے لیے پیغام",
+            submit: "شرکت کی تصدیق کریں"
         }
+    },
+    hi: {
+    hero: {
+        bismillah: "बिस्मिल्लाहिर रहमानिर रहीम",
+        bismillahTrans: "अल्लाह के नाम से, जो बड़ा मेहरबान और रहमत करने वाला है",
+        request: "आपकी सम्मानित उपस्थिति का अनुरोध करते हैं निकाह समारोह में",
+        tap: "जारी रखने के लिए टैप करें"
+    },
+    countdown: {
+        days: "दिन",
+        hours: "घंटे",
+        minutes: "मिनट",
+        seconds: "सेकंड"
+    },
+    venue: {
+        title: "स्थान",
+        address: "राणा प्रताप मार्ग, हज़रतगंज, लखनऊ, उत्तर प्रदेश"
+    },
+    dressCode: {
+        title: "ड्रेस कोड",
+        description: "कृपया औपचारिक परिधान पहनें"
+    },
+    songRequest: {
+        title: "हमारी प्लेलिस्ट बनाने में हमारी मदद करें!",
+        subtitle: "हमारी शादी के लिए एक गाना सुझाएँ!",
+        namePlaceholder: "आपका नाम",
+        songPlaceholder: "गाने का शीर्षक",
+        artistPlaceholder: "कलाकार का नाम",
+        eventLabel: "किस कार्यक्रम के लिए?",
+        submit: "अनुरोध भेजें"
+    },
+    blessings: {
+        title: "अपनी दुआओं और शुभकामनाओं से हमें नवाज़ें",
+        namePlaceholder: "आपका नाम",
+        messagePlaceholder: "अपना संदेश या दुआ लिखें...",
+        submit: "दुआ भेजें"
+    },
+    rsvp: {
+        title: "RSVP",
+        name: "पूरा नाम",
+        email: "ईमेल पता",
+        attendance: "क्या आप शामिल होंगे?",
+        attending: "खुशी के साथ स्वीकार करता/करती हूँ",
+        declining: "अफ़सोस के साथ मना करता/करती हूँ",
+        message: "दूल्हा-दुल्हन के लिए संदेश",
+        submit: "उपस्थिति की पुष्टि करें"
     }
+}
+
+
 };
 
 let currentLanguage = 'en';
@@ -158,7 +207,11 @@ function setLanguage(lang) {
         ? "px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-teatro-gold text-teatro-dark font-bold shadow-lg transform scale-105"
         : "px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-white/50 text-teatro-warm hover:bg-white hover:text-teatro-gold";
 
-    document.getElementById('lang-it').className = lang === 'it'
+    document.getElementById('lang-it').className = lang === 'ur'
+        ? "px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-teatro-gold text-teatro-dark font-bold shadow-lg transform scale-105"
+        : "px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-white/50 text-teatro-warm hover:bg-white hover:text-teatro-gold";
+
+    document.getElementById('lang-it').className = lang === 'hi'
         ? "px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-teatro-gold text-teatro-dark font-bold shadow-lg transform scale-105"
         : "px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-white/50 text-teatro-warm hover:bg-white hover:text-teatro-gold";
 
@@ -203,7 +256,7 @@ window.setLanguage = setLanguage; // Make global
 
 // Countdown Timer
 function initCountdown() {
-    const targetDate = new Date('2026-03-27T11:00:00').getTime();
+    const targetDate = new Date('2026-03-27T10:30:00').getTime();
 
     setInterval(() => {
         const now = new Date().getTime();
