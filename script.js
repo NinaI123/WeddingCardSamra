@@ -1,6 +1,6 @@
 // Supabase Configuration
-const SUPABASE_URL = "https://ixuknrfmhotjjhpeupje.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml4dWtucmZtaG90ampocGV1cGplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA1NzM5MTUsImV4cCI6MjA4NjE0OTkxNX0.8_BCi3Ay6wnqbsXt5mKB-pZGjwT60gR07ofsKa3w0UM";
+// IMPORTANT: Credentials are loaded from config.js (not committed to Git)
+// Make sure config.js is loaded before this script in index.html
 
 let supabaseClient = null;
 if (window.supabase) {
@@ -110,54 +110,54 @@ const translations = {
         }
     },
     hi: {
-    hero: {
-        bismillah: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
-        bismillahTrans: "अल्लाह के नाम से, जो बड़ा मेहरबान और रहमत करने वाला है",
-        request: "आपकी सम्मानित उपस्थिति का अनुरोध करते हैं निकाह समारोह में",
-        tap: "जारी रखने के लिए टैप करें",
-        bridename: "Samra Fatima",
-        groomname: "Abdul Sattar"
-    },
-    countdown: {
-        days: "दिन",
-        hours: "घंटे",
-        minutes: "मिनट",
-        seconds: "सेकंड"
-    },
-    venue: {
-        title: "स्थान",
-        address: "राणा प्रताप मार्ग, हज़रतगंज, लखनऊ, उत्तर प्रदेश"
-    },
-    dressCode: {
-        title: "ड्रेस कोड",
-        description: "कृपया औपचारिक परिधान पहनें"
-    },
-    songRequest: {
-        title: "हमारी प्लेलिस्ट बनाने में हमारी मदद करें!",
-        subtitle: "हमारी शादी के लिए एक गाना सुझाएँ!",
-        namePlaceholder: "आपका नाम",
-        songPlaceholder: "गाने का शीर्षक",
-        artistPlaceholder: "कलाकार का नाम",
-        eventLabel: "किस कार्यक्रम के लिए?",
-        submit: "अनुरोध भेजें"
-    },
-    blessings: {
-        title: "अपनी दुआओं और शुभकामनाओं से हमें नवाज़ें",
-        namePlaceholder: "आपका नाम",
-        messagePlaceholder: "अपना संदेश या दुआ लिखें...",
-        submit: "दुआ भेजें"
-    },
-    rsvp: {
-        title: "RSVP",
-        name: "पूरा नाम",
-        email: "ईमेल पता",
-        attendance: "क्या आप शामिल होंगे?",
-        attending: "खुशी के साथ स्वीकार करता/करती हूँ",
-        declining: "अफ़सोस के साथ मना करता/करती हूँ",
-        message: "दूल्हा-दुल्हन के लिए संदेश",
-        submit: "उपस्थिति की पुष्टि करें"
+        hero: {
+            bismillah: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
+            bismillahTrans: "अल्लाह के नाम से, जो बड़ा मेहरबान और रहमत करने वाला है",
+            request: "आपकी सम्मानित उपस्थिति का अनुरोध करते हैं निकाह समारोह में",
+            tap: "जारी रखने के लिए टैप करें",
+            bridename: "Samra Fatima",
+            groomname: "Abdul Sattar"
+        },
+        countdown: {
+            days: "दिन",
+            hours: "घंटे",
+            minutes: "मिनट",
+            seconds: "सेकंड"
+        },
+        venue: {
+            title: "स्थान",
+            address: "राणा प्रताप मार्ग, हज़रतगंज, लखनऊ, उत्तर प्रदेश"
+        },
+        dressCode: {
+            title: "ड्रेस कोड",
+            description: "कृपया औपचारिक परिधान पहनें"
+        },
+        songRequest: {
+            title: "हमारी प्लेलिस्ट बनाने में हमारी मदद करें!",
+            subtitle: "हमारी शादी के लिए एक गाना सुझाएँ!",
+            namePlaceholder: "आपका नाम",
+            songPlaceholder: "गाने का शीर्षक",
+            artistPlaceholder: "कलाकार का नाम",
+            eventLabel: "किस कार्यक्रम के लिए?",
+            submit: "अनुरोध भेजें"
+        },
+        blessings: {
+            title: "अपनी दुआओं और शुभकामनाओं से हमें नवाज़ें",
+            namePlaceholder: "आपका नाम",
+            messagePlaceholder: "अपना संदेश या दुआ लिखें...",
+            submit: "दुआ भेजें"
+        },
+        rsvp: {
+            title: "RSVP",
+            name: "पूरा नाम",
+            email: "ईमेल पता",
+            attendance: "क्या आप शामिल होंगे?",
+            attending: "खुशी के साथ स्वीकार करता/करती हूँ",
+            declining: "अफ़सोस के साथ मना करता/करती हूँ",
+            message: "दूल्हा-दुल्हन के लिए संदेश",
+            submit: "उपस्थिति की पुष्टि करें"
+        }
     }
-}
 
 
 };
@@ -246,7 +246,7 @@ function setLanguage(lang) {
     //         }
     //     }
     // });
-       const elements = document.querySelectorAll('[data-i18n]');
+    const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
         const keys = key.split('.');
@@ -404,42 +404,6 @@ async function fetchBlessings() {
 }
 
 function initForms() {
-    // Song Request
-    document.getElementById('song-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const btn = document.getElementById('song-submit');
-        const originalText = btn.textContent;
-        btn.textContent = "Sending...";
-        btn.disabled = true;
-
-        const formData = new FormData(e.target);
-
-        try {
-            if (supabaseClient) {
-                const { error } = await supabaseClient.from('song_requests').insert([{
-                    name: formData.get('name'),
-                    song: formData.get('song'),
-                    artist: formData.get('artist'),
-                    event: formData.get('event'),
-                    submitted_at: new Date()
-                }]);
-                if (error) throw error;
-            }
-
-            btn.textContent = "Request Sent!";
-            e.target.reset();
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.disabled = false;
-            }, 3000);
-        } catch (error) {
-            console.error(error);
-            alert("Error submitting request.");
-            btn.textContent = originalText;
-            btn.disabled = false;
-        }
-    });
-
     // Blessings
     document.getElementById('blessing-form').addEventListener('submit', async (e) => {
         e.preventDefault();
