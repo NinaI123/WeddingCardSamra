@@ -3,26 +3,11 @@ const SUPABASE_URL = "https://ixuknrfmhotjjhpeupje.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml4dWtucmZtaG90ampocGV1cGplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA1NzM5MTUsImV4cCI6MjA4NjE0OTkxNX0.8_BCi3Ay6wnqbsXt5mKB-pZGjwT60gR07ofsKa3w0UM";
 
 let supabaseClient = null;
-
-// Initialize Supabase client with retry logic
-function initSupabase() {
-    if (window.supabase) {
-        try {
-            supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-            console.log("✅ Supabase client initialized successfully");
-            return true;
-        } catch (error) {
-            console.error("❌ Error creating Supabase client:", error);
-            return false;
-        }
-    } else {
-        console.error("❌ Supabase CDN not loaded - window.supabase is undefined");
-        return false;
-    }
+if (window.supabase) {
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+} else {
+    console.error("Supabase CDN not loaded");
 }
-
-// Try to initialize immediately
-initSupabase();
 
 // Translations
 const translations = {
@@ -125,54 +110,54 @@ const translations = {
         }
     },
     hi: {
-        hero: {
-            bismillah: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
-            bismillahTrans: "अल्लाह के नाम से, जो बड़ा मेहरबान और रहमत करने वाला है",
-            request: "आपकी सम्मानित उपस्थिति का अनुरोध करते हैं निकाह समारोह में",
-            tap: "जारी रखने के लिए टैप करें",
-            bridename: "Samra Fatima",
-            groomname: "Abdul Sattar"
-        },
-        countdown: {
-            days: "दिन",
-            hours: "घंटे",
-            minutes: "मिनट",
-            seconds: "सेकंड"
-        },
-        venue: {
-            title: "स्थान",
-            address: "राणा प्रताप मार्ग, हज़रतगंज, लखनऊ, उत्तर प्रदेश"
-        },
-        dressCode: {
-            title: "ड्रेस कोड",
-            description: "कृपया औपचारिक परिधान पहनें"
-        },
-        songRequest: {
-            title: "हमारी प्लेलिस्ट बनाने में हमारी मदद करें!",
-            subtitle: "हमारी शादी के लिए एक गाना सुझाएँ!",
-            namePlaceholder: "आपका नाम",
-            songPlaceholder: "गाने का शीर्षक",
-            artistPlaceholder: "कलाकार का नाम",
-            eventLabel: "किस कार्यक्रम के लिए?",
-            submit: "अनुरोध भेजें"
-        },
-        blessings: {
-            title: "अपनी दुआओं और शुभकामनाओं से हमें नवाज़ें",
-            namePlaceholder: "आपका नाम",
-            messagePlaceholder: "अपना संदेश या दुआ लिखें...",
-            submit: "दुआ भेजें"
-        },
-        rsvp: {
-            title: "RSVP",
-            name: "पूरा नाम",
-            email: "ईमेल पता",
-            attendance: "क्या आप शामिल होंगे?",
-            attending: "खुशी के साथ स्वीकार करता/करती हूँ",
-            declining: "अफ़सोस के साथ मना करता/करती हूँ",
-            message: "दूल्हा-दुल्हन के लिए संदेश",
-            submit: "उपस्थिति की पुष्टि करें"
-        }
+    hero: {
+        bismillah: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
+        bismillahTrans: "अल्लाह के नाम से, जो बड़ा मेहरबान और रहमत करने वाला है",
+        request: "आपकी सम्मानित उपस्थिति का अनुरोध करते हैं निकाह समारोह में",
+        tap: "जारी रखने के लिए टैप करें",
+        bridename: "Samra Fatima",
+        groomname: "Abdul Sattar"
+    },
+    countdown: {
+        days: "दिन",
+        hours: "घंटे",
+        minutes: "मिनट",
+        seconds: "सेकंड"
+    },
+    venue: {
+        title: "स्थान",
+        address: "राणा प्रताप मार्ग, हज़रतगंज, लखनऊ, उत्तर प्रदेश"
+    },
+    dressCode: {
+        title: "ड्रेस कोड",
+        description: "कृपया औपचारिक परिधान पहनें"
+    },
+    songRequest: {
+        title: "हमारी प्लेलिस्ट बनाने में हमारी मदद करें!",
+        subtitle: "हमारी शादी के लिए एक गाना सुझाएँ!",
+        namePlaceholder: "आपका नाम",
+        songPlaceholder: "गाने का शीर्षक",
+        artistPlaceholder: "कलाकार का नाम",
+        eventLabel: "किस कार्यक्रम के लिए?",
+        submit: "अनुरोध भेजें"
+    },
+    blessings: {
+        title: "अपनी दुआओं और शुभकामनाओं से हमें नवाज़ें",
+        namePlaceholder: "आपका नाम",
+        messagePlaceholder: "अपना संदेश या दुआ लिखें...",
+        submit: "दुआ भेजें"
+    },
+    rsvp: {
+        title: "RSVP",
+        name: "पूरा नाम",
+        email: "ईमेल पता",
+        attendance: "क्या आप शामिल होंगे?",
+        attending: "खुशी के साथ स्वीकार करता/करती हूँ",
+        declining: "अफ़सोस के साथ मना करता/करती हूँ",
+        message: "दूल्हा-दुल्हन के लिए संदेश",
+        submit: "उपस्थिति की पुष्टि करें"
     }
+}
 
 
 };
@@ -181,12 +166,6 @@ let currentLanguage = 'en';
 
 // Initialization
 document.addEventListener('DOMContentLoaded', () => {
-    // Retry Supabase initialization if it failed initially
-    if (!supabaseClient) {
-        console.log("Retrying Supabase initialization...");
-        initSupabase();
-    }
-
     initCurtains();
     initCountdown();
     renderCalendar();
@@ -267,7 +246,7 @@ function setLanguage(lang) {
     //         }
     //     }
     // });
-    const elements = document.querySelectorAll('[data-i18n]');
+       const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
         const keys = key.split('.');
@@ -305,7 +284,7 @@ window.setLanguage = setLanguage; // Make global
 
 // Countdown Timer
 function initCountdown() {
-    const targetDate = new Date('2026-03-29T10:30:00').getTime();
+    const targetDate = new Date('2026-03-27T10:30:00').getTime();
 
     setInterval(() => {
         const now = new Date().getTime();
@@ -328,7 +307,7 @@ function initCountdown() {
 // Calendar
 function renderCalendar() {
     const grid = document.getElementById('calendar-grid');
-    const weddingDay = 29;
+    const weddingDay = 27;
     const daysInMonth = 31;
     const startingDay = 0; // Sunday
 
@@ -473,24 +452,16 @@ function initForms() {
         const message = document.getElementById('blessing-message').value;
 
         try {
-            if (!supabaseClient) {
-                throw new Error("Database connection not available. Please refresh the page and try again.");
+            if (supabaseClient) {
+                const { error } = await supabaseClient.from('blessings').insert([{
+                    name,
+                    message
+                }]);
+                if (error) throw error;
+
+                // Refresh feed
+                fetchBlessings();
             }
-
-            const { data, error } = await supabaseClient.from('blessings').insert([{
-                name,
-                message
-            }]);
-
-            if (error) {
-                console.error("Supabase error:", error);
-                throw new Error(error.message || "Failed to send blessing");
-            }
-
-            console.log("Blessing sent successfully:", data);
-
-            // Refresh feed
-            fetchBlessings();
 
             btn.textContent = "Sent!";
             document.getElementById('blessing-form').reset();
@@ -500,61 +471,44 @@ function initForms() {
                 lucide.createIcons(); // Re-init icons for the button
             }, 2000);
         } catch (error) {
-            console.error("Error sending blessing:", error);
-            alert(`Error sending blessing: ${error.message}`);
+            console.error(error);
+            alert("Error sending blessing.");
             btn.innerHTML = originalText;
             btn.disabled = false;
-            lucide.createIcons();
         }
     });
 
     // RSVP
-    const rsvpForm = document.getElementById('rsvp-form');
-    if (rsvpForm) {
-        rsvpForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const btn = document.getElementById('rsvp-submit');
-            const originalText = btn.textContent;
-            btn.textContent = "Submitting...";
-            btn.disabled = true;
+    document.getElementById('rsvp-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('rsvp-submit');
+        const originalText = btn.textContent;
+        btn.textContent = "Submitting...";
+        btn.disabled = true;
 
-            const formData = new FormData(e.target);
+        const formData = new FormData(e.target);
 
-            try {
-                if (!supabaseClient) {
-                    throw new Error("Database connection not available. Please refresh the page and try again.");
-                }
-
-                const { data, error } = await supabaseClient.from('rsvps').insert([{
+        try {
+            if (supabaseClient) {
+                const { error } = await supabaseClient.from('rsvps').insert([{
                     name: formData.get('name'),
                     email: formData.get('email'),
                     attendance: formData.get('attendance'),
                     message: formData.get('message'),
                     submitted_at: new Date()
                 }]);
-
-                if (error) {
-                    console.error("Supabase error:", error);
-                    throw new Error(error.message || "Failed to submit RSVP");
-                }
-
-                console.log("RSVP submitted successfully:", data);
-
-                btn.textContent = "Attendance Confirmed!";
-                e.target.reset();
-                // Reset styles
-                document.querySelectorAll('input[name="attendance"]').forEach(r => updateRsvpStyles(r));
-
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.disabled = false;
-                }, 3000);
-            } catch (error) {
-                console.error("Error submitting RSVP:", error);
-                alert(`Error submitting RSVP: ${error.message}`);
-                btn.textContent = originalText;
-                btn.disabled = false;
+                if (error) throw error;
             }
-        });
-    }
+
+            btn.textContent = "Attendance Confirmed!";
+            e.target.reset();
+            // Reset styles
+            document.querySelectorAll('input[name="attendance"]').forEach(r => updateRsvpStyles(r));
+        } catch (error) {
+            console.error(error);
+            alert("Error submitting RSVP.");
+            btn.textContent = originalText;
+            btn.disabled = false;
+        }
+    });
 }
