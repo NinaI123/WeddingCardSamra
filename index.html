@@ -13,7 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap"
         rel="stylesheet">
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS #e8f5e9-->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -21,15 +21,33 @@
                 extend: {
                     colors: {
                         teatro: {
-                            dark: '#F5EFE6',
+                            dark: '#f5f7f1',
                             primary: '#FFFFFF',
-                            warm: '#5A4A3A',
-                            beige: '#8B735B',
-                            gold: '#C1A37F',
-                            accent: '#E4D1BB',
+                            warm: '#2D5A47',
+                            beige: '#EFF8F5',
+                            gold: '#3a4d39',
+                            accent: '#F3F8F6',
                         }
                     },
-                    fontFamily: {
+// colors: {
+//     teatro: {
+//         // LIGHT BACKGROUNDS
+//         light: '#FFFFFF',        // Pure white background
+//         beige: '#F8F5F0',        // Light warm beige background
+//         accent: '#F1EDE4',       // Subtle beige for accents
+        
+//         // DARK TEXT
+//         dark: '#2C3E2F',         // Dark matcha green - primary text
+//         primary: '#3D5240',      // Medium matcha - headings
+//         warm: '#4A5F4A',         // Warmer matcha - secondary text
+        
+//         // ACCENT COLORS
+//         gold: '#8A9B7B',         // Muted matcha gold
+//         matcha: '#6B8B6A',       // Brighter matcha for buttons/borders
+//         highlight: '#7A9A79',    // Lighter matcha accents
+//     }
+// },
+  fontFamily: {
                         serif: ['"Playfair Display"', 'serif'],
                         sans: ['"Inter"', 'sans-serif'],
                         arabic: ['"Amiri"', 'serif'],
@@ -96,7 +114,7 @@
                         data-i18n="hero.bismillah">
                         بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
                     </h1>
-                    <p class="font-serif text-teatro-beige/80 italic text-sm md:text-lg tracking-wide"
+                    <p class="font-serif text-teatro-warm italic text-sm md:text-lg tracking-wide"
                         data-i18n="hero.bismillahTrans">
                         With the Blessings of Allah, The Most Gracious, The Most Merciful
                     </p>
@@ -106,15 +124,26 @@
                 </div>
 
                 <div class="font-sans text-teatro-warm uppercase tracking-[0.2em] text-xs md:text-sm">
-                     Mr. & Mrs. Qamrul Hasan 
+                     Mr. & Mrs. Izharul Haq 
                 </div>
 
-                <h2 class="font-serif text-2xl md:text-2.5xl text-teatro-beige/90 leading-relaxed px-4"
+                <h2 class="font-serif text-2xl md:text-2.5xl text-teatro-warm leading-relaxed px-4"
                     data-i18n="hero.request">
-                    Request the Honor of Your Presence and Blessings on the Auspicious Occasion of the Wedding Ceremony of their Beloved Granddaughter
+                    Request the Honor of Your Presence and Blessings on the Auspicious Occasion of the Wedding Ceremony of their Beloved Son
                 </h2>
 
                 <div class="space-y-6 pt-4">
+                    <div
+                        class="font-serif text-5xl md:text-7xl lg:text-8xl text-teatro-gold gold-gradient-text transform hover:scale-105 transition-transform duration-700 cursor-default"
+                        data-i18n="hero.groomname">
+                        Abdul Sattar
+                    </div>
+                    <div class="font-sans text-teatro-warm uppercase tracking-[0.2em] text-xs md:text-sm">
+                        S/o Mr. & Mrs. Izharul Haq
+                    </div>
+                    <div class="font-serif text-2xl md:text-4xl text-teatro-warm italic">
+                        &
+                    </div>
                     <div
                         class="font-serif text-5xl md:text-7xl lg:text-8xl text-teatro-gold gold-gradient-text transform hover:scale-105 transition-transform duration-700 cursor-default"
                         data-i18n="hero.bridename">
@@ -122,17 +151,6 @@
                     </div>
                     <div class="font-sans text-teatro-warm uppercase tracking-[0.2em] text-xs md:text-sm">
                         D/o Mr. & Mrs. Badrul Hasan
-                    </div>
-                    <div class="font-serif text-2xl md:text-4xl text-teatro-beige/60 italic">
-                        &
-                    </div>
-                    <div
-                        class="font-serif text-5xl md:text-7xl lg:text-8xl text-teatro-gold gold-gradient-text transform hover:scale-105 transition-transform duration-700 cursor-default"
-                        data-i18n="hero.groomname">
-                        Abdul Sattar
-                    </div>
-                    <div class="font-sans text-teatro-warm uppercase tracking-[0.2em] text-xs md:text-sm">
-                        S/o Mr. & Mrs. Izharul Haque
                     </div>
 
                     <div class="pt-8 flex justify-center">
@@ -155,9 +173,9 @@
                         <i data-lucide="calendar" class="w-4 h-4"></i> Save the Date
                     </h3>
                     <div class="space-y-2">
-                        <p class="font-serif text-2xl md:text-3xl text-teatro-beige/80 italic">Friday</p>
+                        <p class="font-serif text-2xl md:text-3xl text-teatro-warm italic">Sunday</p>
                         <div class="font-serif text-5xl md:text-7xl font-bold text-teatro-warm gold-gradient-text py-2">
-                            March 27
+                            March 29
                         </div>
                         <p class="font-sans text-xl md:text-2xl tracking-[0.2em] text-teatro-warm/60">8:00 PM ONWARDS
                         </p>
@@ -185,7 +203,7 @@
 
             <!-- Timeline / Countdown -->
             <div class="space-y-4 text-center">
-                <h3 class="font-serif text-3xl md:text-4xl text-teatro-beige">Timeline</h3>
+                <h3 class="font-serif text-3xl md:text-4xl text-teatro-warm">Timeline</h3>
                 <div class="w-20 h-[1px] bg-teatro-gold mx-auto"></div>
 
                 <div class="py-12 w-full max-w-4xl mx-auto px-4">
@@ -194,28 +212,28 @@
                             <div id="timer-days"
                                 class="text-4xl md:text-6xl font-serif text-teatro-gold font-light tabular-nums">00
                             </div>
-                            <div class="text-xs md:text-sm uppercase tracking-widest text-teatro-beige/60 mt-2 font-sans"
+                            <div class="text-xs md:text-sm uppercase tracking-widest text-teatro-warm/80 mt-2 font-sans"
                                 data-i18n="countdown.days">Days</div>
                         </div>
                         <div class="flex flex-col items-center">
                             <div id="timer-hours"
                                 class="text-4xl md:text-6xl font-serif text-teatro-gold font-light tabular-nums">00
                             </div>
-                            <div class="text-xs md:text-sm uppercase tracking-widest text-teatro-beige/60 mt-2 font-sans"
+                            <div class="text-xs md:text-sm uppercase tracking-widest text-teatro-warm/80 mt-2 font-sans"
                                 data-i18n="countdown.hours">Hours</div>
                         </div>
                         <div class="flex flex-col items-center">
                             <div id="timer-minutes"
                                 class="text-4xl md:text-6xl font-serif text-teatro-gold font-light tabular-nums">00
                             </div>
-                            <div class="text-xs md:text-sm uppercase tracking-widest text-teatro-beige/60 mt-2 font-sans"
+                            <div class="text-xs md:text-sm uppercase tracking-widest text-teatro-warm/80 mt-2 font-sans"
                                 data-i18n="countdown.minutes">Minutes</div>
                         </div>
                         <div class="flex flex-col items-center">
                             <div id="timer-seconds"
                                 class="text-4xl md:text-6xl font-serif text-teatro-gold font-light tabular-nums">00
                             </div>
-                            <div class="text-xs md:text-sm uppercase tracking-widest text-teatro-beige/60 mt-2 font-sans"
+                            <div class="text-xs md:text-sm uppercase tracking-widest text-teatro-warm/80 mt-2 font-sans"
                                 data-i18n="countdown.seconds">Seconds</div>
                         </div>
                     </div>
@@ -235,11 +253,11 @@
 
                 <div class="space-y-4">
                     <h2 class="font-serif text-4xl md:text-5xl text-teatro-gold gold-gradient-text">
-                        Moti Mahal Lawn 1 (Richi Rich)
+                        Balrampur Garden
                     </h2>
-                    <div class="flex flex-col items-center gap-2 text-teatro-beige/80 font-sans tracking-wide">
-                        <p data-i18n="venue.address">Rana Pratap Marg, Hazratganj, Lucknow, Uttar Pradesh</p>
-                        <a href="https://www.google.com/maps/place/Moti+Mahal+Lawn+1(RICHI+RICH)/@26.8573647,80.93789,17z/data=!4m6!3m5!1s0x399bfd8eb009a235:0xd980df364583468b!8m2!3d26.8573647!4d80.9404649!16s%2Fg%2F11byz93d7s"
+                    <div class="flex flex-col items-center gap-2 text-teatro-warm font-sans tracking-wide">
+                        <p data-i18n="venue.address">Doordarshan Kendra, 23, Ashok Marg, Hazratganj, Lucnkow, UP, India</p>
+                        <a href="https://www.google.com/maps/place/Balrampur+Garden/@26.854854,80.9475689,779m/data=!3m2!1e3!4b1!4m6!3m5!1s0x399bfd0c3ba16e03:0x3255312237e4f1cc!8m2!3d26.854854!4d80.9501438!16s%2Fg%2F1tykssny?entry=ttu&g_ep=EgoyMDI2MDIwOC4wIKXMDSoASAFQAw%3D%3D"
                             target="_blank" rel="noopener noreferrer"
                             class="flex items-center gap-2 text-xs uppercase text-teatro-gold border-b border-teatro-gold/50 hover:text-teatro-accent pb-0.5 mt-2 transition-colors">
                             <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Open in Maps
@@ -306,10 +324,10 @@
                     <form id="blessing-form" class="relative pt-4 border-t border-teatro-gold/10">
                         <div class="flex flex-col gap-4">
                             <input type="text" id="blessing-name" required
-                                class="bg-white/50 border border-teatro-gold/20 rounded px-4 py-3 text-sm text-teatro-warm focus:border-teatro-gold focus:outline-none transition-colors placeholder:text-teatro-beige/50"
+                                class="bg-white/50 border border-teatro-gold/20 rounded px-4 py-3 text-sm text-teatro-warm focus:border-teatro-gold focus:outline-none transition-colors placeholder:text-teatro-warm/70"
                                 placeholder="Your Name">
                             <textarea id="blessing-message" rows="3" required
-                                class="bg-white/50 border border-teatro-gold/20 rounded px-4 py-3 text-sm text-teatro-warm resize-none focus:border-teatro-gold focus:outline-none transition-colors placeholder:text-teatro-beige/50"
+                                class="bg-white/50 border border-teatro-gold/20 rounded px-4 py-3 text-sm text-teatro-warm resize-none focus:border-teatro-gold focus:outline-none transition-colors placeholder:text-teatro-warm/70"
                                 placeholder="Write a message or dua..."></textarea>
                             <button type="submit" id="blessing-submit"
                                 class="self-end mt-2 text-xs uppercase font-bold text-teatro-gold hover:text-teatro-accent flex items-center gap-2 transition-colors disabled:opacity-50">
@@ -322,7 +340,7 @@
             </div>
 
             <!-- RSVP Form -->
-            <section class="py-16 max-w-2xl mx-auto">
+            <!-- <section class="py-16 max-w-2xl mx-auto">
                 <div class="relative glass-panel p-8 md:p-12 rounded-2xl shadow-2xl border border-teatro-gold/30">
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-teatro-gold text-teatro-dark px-6 py-2 uppercase tracking-[0.3em] font-sans text-xs font-bold shadow-lg"
                         data-i18n="rsvp.title">
@@ -388,7 +406,7 @@
                         </div>
                     </form>
                 </div>
-            </section>
+            </section> -->
         </div>
        
         <footer
