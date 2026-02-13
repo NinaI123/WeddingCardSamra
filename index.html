@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samra & Abdul Sattar - Wedding Invitation</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teatro: {
+                            dark: '#F5EFE6',
+                            primary: '#FFFFFF',
+                            warm: '#5A4A3A',
+                            beige: '#8B735B',
+                            gold: '#C1A37F',
+                            accent: '#E4D1BB',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                        arabic: ['"Amiri"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body
+    class="bg-teatro-dark text-teatro-warm font-sans selection:bg-teatro-gold selection:text-teatro-dark overflow-x-hidden">
+
+    <!-- Language Switcher -->
+    <div class="fixed top-6 right-6 z-50 flex gap-2">
+        <button onclick="setLanguage('en')" id="lang-en"
+            class="px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-teatro-gold text-teatro-dark font-bold shadow-lg transform scale-105">EN</button>
+        <button onclick="setLanguage('ur')" id="lang-ur"
+            class="px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-white/50 text-teatro-warm hover:bg-white hover:text-teatro-gold">UR</button>
+            <button onclick="setLanguage('hi')" id="lang-hi"
+            class="px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-white/50 text-teatro-warm hover:bg-white hover:text-teatro-gold">HI</button>
+    </div>
+
+    <!-- Curtain Overlay -->
+    <div id="curtain-overlay"
+        class="fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-1000">
+        <!-- Left Curtain -->
+        <div id="curtain-left"
+            class="absolute left-0 top-0 bottom-0 w-1/2 bg-teatro-primary border-r border-teatro-gold/20 transform transition-transform duration-[2.5s] ease-[cubic-bezier(0.4,0,0.2,1)]">
+        </div>
+
+        <!-- Right Curtain -->
+        <div id="curtain-right"
+            class="absolute right-0 top-0 bottom-0 w-1/2 bg-teatro-primary border-l border-teatro-gold/20 transform transition-transform duration-[2.5s] ease-[cubic-bezier(0.4,0,0.2,1)]">
+        </div>
+
+        <!-- Entrance Content -->
+        <div id="entrance-content" class="relative z-10 text-center transition-opacity duration-700 delay-300">
+            <!-- Optional loading content -->
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="transition-opacity duration-1000 delay-[1.5s] opacity-0">
+
+        <!-- Hero Section -->
+        <section
+            class="relative min-h-screen flex flex-col items-center justify-center py-20 px-6 text-center overflow-hidden">
+            <div class="absolute inset-4 md:inset-8 border border-teatro-gold/30 pointer-events-none z-0"></div>
+            <div class="absolute inset-6 md:inset-10 border border-teatro-gold/10 pointer-events-none z-0"></div>
+
+            <div class="z-10 animate-fade-in-up space-y-8 max-w-4xl mx-auto">
+                <div class="space-y-4">
+                    <h1 class="font-arabic text-3xl md:text-5xl text-teatro-gold leading-relaxed drop-shadow-md"
+                        data-i18n="hero.bismillah">
+                        بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+                    </h1>
+                    <p class="font-serif text-teatro-beige/80 italic text-sm md:text-lg tracking-wide"
+                        data-i18n="hero.bismillahTrans">
+                        With the Blessings of Allah, The Most Gracious, The Most Merciful
+                    </p>
+                </div>
+
+                <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-teatro-gold to-transparent mx-auto my-8">
+                </div>
+
+                <div class="font-sans text-teatro-warm uppercase tracking-[0.2em] text-xs md:text-sm">
+                     Mr. & Mrs. Qamrul Hasan 
+                </div>
+
+                <h2 class="font-serif text-2xl md:text-2.5xl text-teatro-beige/90 leading-relaxed px-4"
+                    data-i18n="hero.request">
+                    Request the Honor of Your Presence and Blessings on the Auspicious Occasion of the Wedding Ceremony of their Beloved Granddaughter
+                </h2>
+
+                <div class="space-y-6 pt-4">
+                    <div
+                        class="font-serif text-5xl md:text-7xl lg:text-8xl text-teatro-gold gold-gradient-text transform hover:scale-105 transition-transform duration-700 cursor-default"
+                        data-i18n="hero.bridename">
+                        Samra Fatima
+                    </div>
+                    <div class="font-sans text-teatro-warm uppercase tracking-[0.2em] text-xs md:text-sm">
+                        D/o Mr. & Mrs. Badrul Hasan
+                    </div>
+                    <div class="font-serif text-2xl md:text-4xl text-teatro-beige/60 italic">
+                        &
+                    </div>
+                    <div
+                        class="font-serif text-5xl md:text-7xl lg:text-8xl text-teatro-gold gold-gradient-text transform hover:scale-105 transition-transform duration-700 cursor-default"
+                        data-i18n="hero.groomname">
+                        Abdul Sattar
+                    </div>
+                    <div class="font-sans text-teatro-warm uppercase tracking-[0.2em] text-xs md:text-sm">
+                        S/o Mr. & Mrs. Izharul Haque
+                    </div>
+
+                    <div class="pt-8 flex justify-center">
+                        <div class="relative w-64 h-64 md:w-80 md:h-80 opacity-80 mix-blend-multiply">
+                            <img src="./assets/couple_illustration.png" alt="Couple Illustration"
+                                class="w-full h-full object-contain">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="max-w-6xl mx-auto px-4 md:px-8 space-y-24 pb-24">
+
+            <!-- Date Reveal -->
+            <section class="py-20 flex flex-col items-center justify-center space-y-12 animate-fade-in-up">
+                <div class="text-center space-y-4">
+                    <h3
+                        class="text-teatro-gold uppercase tracking-[0.3em] text-sm font-sans flex items-center justify-center gap-3">
+                        <i data-lucide="calendar" class="w-4 h-4"></i> Save the Date
+                    </h3>
+                    <div class="space-y-2">
+                        <p class="font-serif text-2xl md:text-3xl text-teatro-beige/80 italic">Friday</p>
+                        <div class="font-serif text-5xl md:text-7xl font-bold text-teatro-warm gold-gradient-text py-2">
+                            March 27
+                        </div>
+                        <p class="font-sans text-xl md:text-2xl tracking-[0.2em] text-teatro-warm/60">8:00 PM ONWARDS
+                        </p>
+                        <p class="font-sans text-xl md:text-2xl tracking-[0.2em] text-teatro-warm/60">2026</p>
+                    </div>
+                </div>
+
+                <!-- Mini Calendar -->
+                <div class="glass-panel p-8 rounded-xl max-w-sm w-full mx-4">
+                    <div class="text-center font-serif text-xl text-teatro-warm mb-6">March 2026</div>
+                    <div class="grid grid-cols-7 gap-2 text-center mb-2">
+                        <div class="font-sans text-xs font-bold text-teatro-gold">S</div>
+                        <div class="font-sans text-xs font-bold text-teatro-gold">M</div>
+                        <div class="font-sans text-xs font-bold text-teatro-gold">T</div>
+                        <div class="font-sans text-xs font-bold text-teatro-gold">W</div>
+                        <div class="font-sans text-xs font-bold text-teatro-gold">T</div>
+                        <div class="font-sans text-xs font-bold text-teatro-gold">F</div>
+                        <div class="font-sans text-xs font-bold text-teatro-gold">S</div>
+                    </div>
+                    <div class="grid grid-cols-7 gap-2 text-center" id="calendar-grid">
+                        <!-- Calendar JS will inject days here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline / Countdown -->
+            <div class="space-y-4 text-center">
+                <h3 class="font-serif text-3xl md:text-4xl text-teatro-beige">Timeline</h3>
+                <div class="w-20 h-[1px] bg-teatro-gold mx-auto"></div>
+
+                <div class="py-12 w-full max-w-4xl mx-auto px-4">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 justify-items-center">
+                        <div class="flex flex-col items-center">
+                            <div id="timer-days"
+                                class="text-4xl md:text-6xl font-serif text-teatro-gold font-light tabular-nums">00
+                            </div>
+                            <div class="text-xs md:text-sm uppercase tracking-widest text-teatro-beige/60 mt-2 font-sans"
+                                data-i18n="countdown.days">Days</div>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div id="timer-hours"
+                                class="text-4xl md:text-6xl font-serif text-teatro-gold font-light tabular-nums">00
+                            </div>
+                            <div class="text-xs md:text-sm uppercase tracking-widest text-teatro-beige/60 mt-2 font-sans"
+                                data-i18n="countdown.hours">Hours</div>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div id="timer-minutes"
+                                class="text-4xl md:text-6xl font-serif text-teatro-gold font-light tabular-nums">00
+                            </div>
+                            <div class="text-xs md:text-sm uppercase tracking-widest text-teatro-beige/60 mt-2 font-sans"
+                                data-i18n="countdown.minutes">Minutes</div>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div id="timer-seconds"
+                                class="text-4xl md:text-6xl font-serif text-teatro-gold font-light tabular-nums">00
+                            </div>
+                            <div class="text-xs md:text-sm uppercase tracking-widest text-teatro-beige/60 mt-2 font-sans"
+                                data-i18n="countdown.seconds">Seconds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Venue Section -->
+            <section class="text-center space-y-8 animate-fade-in-up">
+                <div
+                    class="relative w-full max-w-2xl aspect-video mx-auto mb-12 overflow-hidden rounded-lg shadow-xl glass-panel">
+                    <img src="./assets/venue_illustration.png" alt="Moti Mahal Lawn"
+                        class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-teatro-dark/50 to-transparent pointer-events-none">
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h2 class="font-serif text-4xl md:text-5xl text-teatro-gold gold-gradient-text">
+                        Moti Mahal Lawn 1 (Richi Rich)
+                    </h2>
+                    <div class="flex flex-col items-center gap-2 text-teatro-beige/80 font-sans tracking-wide">
+                        <p data-i18n="venue.address">Rana Pratap Marg, Hazratganj, Lucknow, Uttar Pradesh</p>
+                        <a href="https://www.google.com/maps/place/Moti+Mahal+Lawn+1(RICHI+RICH)/@26.8573647,80.93789,17z/data=!4m6!3m5!1s0x399bfd8eb009a235:0xd980df364583468b!8m2!3d26.8573647!4d80.9404649!16s%2Fg%2F11byz93d7s"
+                            target="_blank" rel="noopener noreferrer"
+                            class="flex items-center gap-2 text-xs uppercase text-teatro-gold border-b border-teatro-gold/50 hover:text-teatro-accent pb-0.5 mt-2 transition-colors">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Open in Maps
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dress Code -->
+            <!-- <section class="text-center py-12 px-6 border-y border-teatro-gold/10 relative">
+                <div class="max-w-xl mx-auto space-y-8">
+                    <h2 class="font-serif text-3xl md:text-4xl text-teatro-gold" data-i18n="dressCode.title">Dress Code
+                    </h2>
+
+                    <div class="flex justify-center gap-12 text-teatro-beige/60">
+                        <div class="flex flex-col items-center gap-3">
+                            <div class="p-4 rounded-full border border-teatro-gold/20 bg-teatro-primary/30">
+                                <i data-lucide="shirt" class="w-8 h-8 text-teatro-gold"></i>
+                            </div>
+                            <span class="font-sans text-xs uppercase tracking-widest">Formal Suit</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-3">
+                            <div class="p-4 rounded-full border border-teatro-gold/20 bg-teatro-primary/30">
+                                <i data-lucide="sparkles" class="w-8 h-8 text-teatro-gold"></i>
+                            </div>
+                            <span class="font-sans text-xs uppercase tracking-widest">Elegant Dress</span>
+                        </div>
+                    </div>
+
+                    <p class="font-serif italic text-teatro-warm/80 text-lg" data-i18n="dressCode.description">
+                        "Formal Attire Requested"
+                    </p>
+
+                    <p class="font-sans text-xs text-teatro-beige/40 max-w-sm mx-auto leading-relaxed">
+                        We kindly request our guests to adhere to the formal dress code. Black tie optional.
+                    </p>
+                </div>
+            </section> -->
+
+            <div class="flex flex-col gap-16 md:gap-24 relative">
+                <!-- Visual connector line -->
+                <div
+                    class="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-teatro-gold/20 to-transparent -translate-x-1/2 hidden md:block">
+                </div>
+
+                
+
+                <!-- Blessings Wall -->
+                <section class="glass-panel p-8 rounded-xl md:p-10 space-y-8 flex flex-col h-full bg-white/70">
+                    <div class="space-y-2 border-b border-teatro-gold/10 pb-4">
+                        <h3 class="font-serif text-2xl md:text-3xl text-teatro-gold flex items-center gap-3"
+                            data-i18n="blessings.title">
+                            <i data-lucide="heart" class="w-6 h-6 text-teatro-gold fill-teatro-gold/20"></i> Shower Us
+                            With Your Duas & Blessings
+                        </h3>
+                    </div>
+
+                    <div id="blessings-feed"
+                        class="flex-grow space-y-4 max-h-96 overflow-y-auto pr-2 scrollbar-hide bg-teatro-dark/5 p-4 rounded-lg shadow-inner">
+                        <!-- Blessings injected here -->
+                        <div class="text-center text-teatro-beige/50 italic py-8">Loading blessings...</div>
+                    </div>
+
+                    <form id="blessing-form" class="relative pt-4 border-t border-teatro-gold/10">
+                        <div class="flex flex-col gap-4">
+                            <input type="text" id="blessing-name" required
+                                class="bg-white/50 border border-teatro-gold/20 rounded px-4 py-3 text-sm text-teatro-warm focus:border-teatro-gold focus:outline-none transition-colors placeholder:text-teatro-beige/50"
+                                placeholder="Your Name">
+                            <textarea id="blessing-message" rows="3" required
+                                class="bg-white/50 border border-teatro-gold/20 rounded px-4 py-3 text-sm text-teatro-warm resize-none focus:border-teatro-gold focus:outline-none transition-colors placeholder:text-teatro-beige/50"
+                                placeholder="Write a message or dua..."></textarea>
+                            <button type="submit" id="blessing-submit"
+                                class="self-end mt-2 text-xs uppercase font-bold text-teatro-gold hover:text-teatro-accent flex items-center gap-2 transition-colors disabled:opacity-50">
+                                <span data-i18n="blessings.submit">Send Blessing</span> <i data-lucide="message-circle"
+                                    class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+
+            <!-- RSVP Form -->
+            <section class="py-16 max-w-2xl mx-auto">
+                <div class="relative glass-panel p-8 md:p-12 rounded-2xl shadow-2xl border border-teatro-gold/30">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-teatro-gold text-teatro-dark px-6 py-2 uppercase tracking-[0.3em] font-sans text-xs font-bold shadow-lg"
+                        data-i18n="rsvp.title">
+                        RSVP
+                    </div>
+
+                    <form id="rsvp-form" class="space-y-8 pt-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-xs uppercase tracking-widest text-teatro-gold/70 pl-1"
+                                    data-i18n="rsvp.name">Full Name</label>
+                                <input type="text" name="name" required
+                                    class="w-full bg-teatro-dark/5 border-b border-teatro-gold/30 px-4 py-3 text-teatro-warm focus:border-teatro-gold focus:bg-teatro-primary outline-none transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs uppercase tracking-widest text-teatro-gold/70 pl-1"
+                                    data-i18n="rsvp.email">Email Address</label>
+                                <input type="email" name="email" required
+                                    class="w-full bg-teatro-dark/5 border-b border-teatro-gold/30 px-4 py-3 text-teatro-warm focus:border-teatro-gold focus:bg-teatro-primary outline-none transition-all">
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <label
+                                class="text-xs uppercase tracking-widest text-teatro-gold/70 pl-1 block text-center mb-4"
+                                data-i18n="rsvp.attendance">Will you attend?</label>
+                            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                                <label class="flex-1 cursor-pointer group">
+                                    <input type="radio" name="attendance" value="attending" required class="peer hidden"
+                                        onchange="updateRsvpStyles(this)">
+                                    <div
+                                        class="border border-teatro-gold/20 p-4 text-center rounded hover:bg-teatro-gold/5 peer-checked:bg-teatro-gold peer-checked:text-teatro-dark transition-all duration-300 group-hover:border-teatro-gold/40">
+                                        <span class="font-serif italic text-lg" data-i18n="rsvp.attending">Joyfully
+                                            Accepts</span>
+                                    </div>
+                                </label>
+                                <label class="flex-1 cursor-pointer group">
+                                    <input type="radio" name="attendance" value="declining" required class="peer hidden"
+                                        onchange="updateRsvpStyles(this)">
+                                    <div
+                                        class="border border-teatro-gold/20 p-4 text-center rounded hover:bg-teatro-gold/5 peer-checked:bg-teatro-warm peer-checked:text-teatro-dark peer-checked:border-teatro-gold transition-all duration-300 group-hover:border-teatro-gold/40">
+                                        <span
+                                            class="font-serif italic text-lg text-teatro-beige/70 peer-checked:text-teatro-dark"
+                                            data-i18n="rsvp.declining">Regretfully Declines</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-widest text-teatro-gold/70 pl-1"
+                                data-i18n="rsvp.message">Message for the Couple</label>
+                            <textarea rows="3" name="message"
+                                class="w-full bg-teatro-dark/5 border-b border-teatro-gold/30 px-4 py-3 text-teatro-warm focus:border-teatro-gold focus:bg-teatro-primary outline-none transition-all resize-none"></textarea>
+                        </div>
+
+                        <div class="pt-4 text-center">
+                            <button type="submit" id="rsvp-submit"
+                                class="bg-teatro-gold text-teatro-dark px-10 py-4 font-sans uppercase tracking-[0.2em] text-sm hover:scale-105 hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300 font-bold w-full md:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
+                                data-i18n="rsvp.submit">
+                                Confirm Attendance
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+       
+        <footer
+            class="py-8 text-center text-teatro-beige/30 text-xs uppercase tracking-widest border-t border-teatro-primary mt-20">
+            Invited with Love
+        </footer>
+    </main>
+
+    <!-- App Logic -->
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+ <!-- Song Request
+                <section class="glass-panel p-8 rounded-xl md:p-10 space-y-6 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <i data-lucide="music" class="w-20 h-20"></i>
+                    </div>
+
+                    <div class="space-y-2 relative z-10">
+                        <h3 class="font-serif text-2xl md:text-3xl text-teatro-gold" data-i18n="songRequest.title">Help
+                            Us Curate Our Celebration!</h3>
+                        <p class="font-sans text-sm text-teatro-beige/60" data-i18n="songRequest.subtitle">Suggest a
+                            song for our wedding playlist!</p>
+                    </div>
+
+                    <form id="song-form" class="space-y-4 relative z-10">
+                        <div class="grid grid-cols-1 gap-4">
+                            <input type="text" name="name" id="song-name" required
+                                class="w-full bg-teatro-dark/50 border border-teatro-gold/20 rounded px-4 py-3 text-teatro-warm focus:outline-none focus:border-teatro-gold/60 transition-colors placeholder:text-teatro-beige/20 text-sm"
+                                placeholder="Your Name">
+                            <input type="text" name="song" id="song-title" required
+                                class="w-full bg-teatro-dark/50 border border-teatro-gold/20 rounded px-4 py-3 text-teatro-warm focus:outline-none focus:border-teatro-gold/60 transition-colors placeholder:text-teatro-beige/20 text-sm"
+                                placeholder="Song Title">
+                            <input type="text" name="artist" id="song-artist"
+                                class="w-full bg-teatro-dark/50 border border-teatro-gold/20 rounded px-4 py-3 text-teatro-warm focus:outline-none focus:border-teatro-gold/60 transition-colors placeholder:text-teatro-beige/20 text-sm"
+                                placeholder="Artist Name">
+                        </div>
+
+                        <div class="pt-2">
+                            <label class="block text-xs uppercase tracking-widest text-teatro-gold/60 mb-2"
+                                data-i18n="songRequest.eventLabel">Which Event?</label>
+                            <div class="flex flex-wrap gap-2">
+                                <label
+                                    class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-full border transition-colors bg-teatro-dark/30 border-teatro-gold/10 hover:border-teatro-gold/40">
+                                    <input type="radio" name="event" value="Mehndi" class="hidden"
+                                        onchange="updateRadioStyles(this)">
+                                    <span class="text-xs text-teatro-beige/80">Mehndi</span>
+                                </label>
+                                <label
+                                    class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-full border transition-colors bg-teatro-dark/30 border-teatro-gold/10 hover:border-teatro-gold/40">
+                                    <input type="radio" name="event" value="Nikah" class="hidden"
+                                        onchange="updateRadioStyles(this)">
+                                    <span class="text-xs text-teatro-beige/80">Nikah</span>
+                                </label>
+                                <label
+                                    class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-full border transition-colors bg-teatro-gold text-teatro-dark border-teatro-gold">
+                                    <input type="radio" name="event" value="Reception" class="hidden" checked
+                                        onchange="updateRadioStyles(this)">
+                                    <span class="text-xs text-teatro-dark font-bold">Reception</span>
+                                </label>
+                                <label
+                                    class="flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-full border transition-colors bg-teatro-dark/30 border-teatro-gold/10 hover:border-teatro-gold/40">
+                                    <input type="radio" name="event" value="Walima" class="hidden"
+                                        onchange="updateRadioStyles(this)">
+                                    <span class="text-xs text-teatro-beige/80">Walima</span>
+                                </label>
+                            </div>
+                        </div> -->
+<!-- 
+                        <button type="submit" id="song-submit"
+                            class="w-full sm:w-auto mt-4 px-6 py-3 bg-teatro-gold/10 hover:bg-teatro-gold text-teatro-gold hover:text-teatro-dark border border-teatro-gold transition-all duration-300 rounded font-sans uppercase tracking-widest text-xs font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                            data-i18n="songRequest.submit">
+                            Submit Request
+                        </button>
+                    </form>
+                </section> -->
