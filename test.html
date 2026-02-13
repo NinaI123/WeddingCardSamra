@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Config Test</title>
+</head>
+
+<body>
+    <h1>Testing Config.js Loading</h1>
+    <div id="status">Checking...</div>
+
+    <script src="config.js"></script>
+    <script>
+        const statusDiv = document.getElementById('status');
+
+        if (typeof SUPABASE_URL !== 'undefined' && typeof SUPABASE_ANON_KEY !== 'undefined') {
+            statusDiv.innerHTML = `
+                <p style="color: green;">✅ Config loaded successfully!</p>
+                <p>SUPABASE_URL: ${SUPABASE_URL}</p>
+                <p>SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY.substring(0, 20)}...</p>
+            `;
+        } else {
+            statusDiv.innerHTML = `
+                <p style="color: red;">❌ Config failed to load!</p>
+                <p>SUPABASE_URL defined: ${typeof SUPABASE_URL !== 'undefined'}</p>
+                <p>SUPABASE_ANON_KEY defined: ${typeof SUPABASE_ANON_KEY !== 'undefined'}</p>
+            `;
+        }
+    </script>
+</body>
+
+</html>
