@@ -13,16 +13,16 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    background-image: linear-gradient(to right, #3a4d39, #4a5f48);
-    /* dark matcha green gradient */
+    background-image: linear-gradient(to right, #C1A37F, #8B735B);
+    /* teatro-gold to teatro-beige */
 }
 
 .glass-panel {
-    background-color: rgba(247, 251, 250, 0.9);
-    /* very light pastel matcha */
+    background-color: rgba(255, 255, 255, 0.9);
+    /* color-mix replacement */
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(139, 168, 158, 0.2);
+    border: 1px solid rgba(193, 163, 127, 0.2);
     box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
 }
 
