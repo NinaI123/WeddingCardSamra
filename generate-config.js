@@ -16,8 +16,10 @@ const configContent = `// Supabase Configuration
 // IMPORTANT: This file is auto-generated from environment variables
 // Do not edit manually - it will be overwritten on each build
 
-const SUPABASE_URL = "${SUPABASE_URL}";
-const SUPABASE_ANON_KEY = "${SUPABASE_ANON_KEY}";
+window.CONFIG = {
+    SUPABASE_URL: "${SUPABASE_URL}",
+    SUPABASE_ANON_KEY: "${SUPABASE_ANON_KEY}"
+};
 `;
 
 try {

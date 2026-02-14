@@ -1,13 +1,30 @@
 // Supabase Configuration
-// IMPORTANT: Credentials are loaded from config.js (not committed to Git)
-// Make sure config.js is loaded before this script in index.html
+// Credentials are loaded from config.js (which is gitignored)
+const SUPABASE_URL = window.CONFIG?.SUPABASE_URL || "";
+const SUPABASE_ANON_KEY = window.CONFIG?.SUPABASE_ANON_KEY || "";
+
 
 let supabaseClient = null;
-if (window.supabase) {
-    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-} else {
-    console.error("Supabase CDN not loaded");
+
+// Initialize Supabase client with retry logic
+function initSupabase() {
+    if (window.supabase) {
+        try {
+            supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            console.log("✅ Supabase client initialized successfully");
+            return true;
+        } catch (error) {
+            console.error("❌ Error creating Supabase client:", error);
+            return false;
+        }
+    } else {
+        console.error("❌ Supabase CDN not loaded - window.supabase is undefined");
+        return false;
+    }
 }
+
+// Try to initialize immediately
+initSupabase();
 
 // Translations
 const translations = {
@@ -166,6 +183,12 @@ let currentLanguage = 'en';
 
 // Initialization
 document.addEventListener('DOMContentLoaded', () => {
+    // Retry Supabase initialization if it failed initially
+    if (!supabaseClient) {
+        console.log("Retrying Supabase initialization...");
+        initSupabase();
+    }
+
     initCurtains();
     initCountdown();
     renderCalendar();
@@ -223,29 +246,6 @@ function setLanguage(lang) {
 
 
     // Update text content
-    // const elements = document.querySelectorAll('[data-i18n]');
-    // elements.forEach(el => {
-    //     const key = el.getAttribute('data-i18n');
-    //     const keys = key.split('.');
-    //     let value = t;
-    //     keys.forEach(k => value = value[k]);
-
-    //     if (value) {
-    //         // Preserve HTML for certain keys/icons if needed, but for now textContent is safer
-    //         // unless we specifically need HTML structure (like icons inside buttons)
-    //         if (el.tagName === 'BUTTON') {
-    //             // Special handling for buttons with icons
-    //             const icon = el.querySelector('svg');
-    //             el.childNodes.forEach(node => {
-    //                 if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
-    //                     node.textContent = " " + value + " ";
-    //                 }
-    //             });
-    //         } else {
-    //             el.textContent = value;
-    //         }
-    //     }
-    // });
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -284,7 +284,7 @@ window.setLanguage = setLanguage; // Make global
 
 // Countdown Timer
 function initCountdown() {
-    const targetDate = new Date('2026-03-27T10:30:00').getTime();
+    const targetDate = new Date('2026-03-29T20:00:00').getTime(); // Keep Samra's date
 
     setInterval(() => {
         const now = new Date().getTime();
@@ -307,7 +307,7 @@ function initCountdown() {
 // Calendar
 function renderCalendar() {
     const grid = document.getElementById('calendar-grid');
-    const weddingDay = 27;
+    const weddingDay = 29; // Keep Samra's date
     const daysInMonth = 31;
     const startingDay = 0; // Sunday
 
@@ -416,16 +416,24 @@ function initForms() {
         const message = document.getElementById('blessing-message').value;
 
         try {
-            if (supabaseClient) {
-                const { error } = await supabaseClient.from('blessings').insert([{
-                    name,
-                    message
-                }]);
-                if (error) throw error;
-
-                // Refresh feed
-                fetchBlessings();
+            if (!supabaseClient) {
+                throw new Error("Database connection not available. Please refresh the page and try again.");
             }
+
+            const { data, error } = await supabaseClient.from('blessings').insert([{
+                name,
+                message
+            }]);
+
+            if (error) {
+                console.error("Supabase error:", error);
+                throw new Error(error.message || "Failed to send blessing");
+            }
+
+            console.log("Blessing sent successfully:", data);
+
+            // Refresh feed
+            fetchBlessings();
 
             btn.textContent = "Sent!";
             document.getElementById('blessing-form').reset();
@@ -435,44 +443,67 @@ function initForms() {
                 lucide.createIcons(); // Re-init icons for the button
             }, 2000);
         } catch (error) {
-            console.error(error);
-            alert("Error sending blessing.");
+            console.error("Error sending blessing:", error);
+            alert(`Error sending blessing: ${error.message}`);
             btn.innerHTML = originalText;
             btn.disabled = false;
+            lucide.createIcons();
         }
     });
 
-    // RSVP
-    document.getElementById('rsvp-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const btn = document.getElementById('rsvp-submit');
-        const originalText = btn.textContent;
-        btn.textContent = "Submitting...";
-        btn.disabled = true;
+    // RSVP Logic - Commented out as requested? No, previous context said features remain.
+    // However, I see only Blessings being tested.
+    // Wait, the user said "dont change the features (as abdul has some different feature than samra)"
+    // The previous analysis showed Samra had RSVP and Blessings. Abdul has Song Request too.
+    // But Samra explicitly removed Song Request.
+    // I should check if Samra still has RSVP in the HTML.
 
-        const formData = new FormData(e.target);
+    const rsvpForm = document.getElementById('rsvp-form');
+    if (rsvpForm) {
+        rsvpForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('rsvp-submit');
+            const originalText = btn.textContent;
+            btn.textContent = "Submitting...";
+            btn.disabled = true;
 
-        try {
-            if (supabaseClient) {
-                const { error } = await supabaseClient.from('rsvps').insert([{
+            const formData = new FormData(e.target);
+
+            try {
+                if (!supabaseClient) {
+                    throw new Error("Database connection not available. Please refresh the page and try again.");
+                }
+
+                const { data, error } = await supabaseClient.from('rsvps').insert([{
                     name: formData.get('name'),
                     email: formData.get('email'),
                     attendance: formData.get('attendance'),
                     message: formData.get('message'),
                     submitted_at: new Date()
                 }]);
-                if (error) throw error;
-            }
 
-            btn.textContent = "Attendance Confirmed!";
-            e.target.reset();
-            // Reset styles
-            document.querySelectorAll('input[name="attendance"]').forEach(r => updateRsvpStyles(r));
-        } catch (error) {
-            console.error(error);
-            alert("Error submitting RSVP.");
-            btn.textContent = originalText;
-            btn.disabled = false;
-        }
-    });
+                if (error) {
+                    console.error("Supabase error:", error);
+                    throw new Error(error.message || "Failed to submit RSVP");
+                }
+
+                console.log("RSVP submitted successfully:", data);
+
+                btn.textContent = "Attendance Confirmed!";
+                e.target.reset();
+                // Reset styles
+                document.querySelectorAll('input[name="attendance"]').forEach(r => updateRsvpStyles(r));
+
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                }, 3000);
+            } catch (error) {
+                console.error("Error submitting RSVP:", error);
+                alert(`Error submitting RSVP: ${error.message}`);
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
+        });
+    }
 }
