@@ -1,0 +1,9 @@
+{
+  "name": "wedding-card",
+  "version": "1.0.0",
+  "description": "Wedding invitation website",
+  "scripts": {
+    "build": "node generate-config.js",
+    "start": "python -m http.server 8000"
+  }
+}
