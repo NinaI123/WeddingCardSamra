@@ -36,13 +36,16 @@ git push
 
 4. Click **"Save Changes"**
 
-#### Update Build Command:
+#### Update Build & Start Commands:
 
 1. Click **"Settings"** in the left sidebar
-2. Find **"Build Command"**
-3. Change it to:
+2. Find **"Build Command"** and set it to:
    ```bash
    node generate-config.js
+   ```
+3. Find **"Start Command"** and set it to:
+   ```bash
+   node server.js
    ```
 4. Click **"Save Changes"**
 
@@ -75,8 +78,13 @@ The build will:
 ### Site loads but forms don't work
 → Check the browser console for errors. The Supabase credentials might be wrong.
 
-### "config.js not found" error
-→ Make sure the build command is set to `node generate-config.js`
+### "config.js not found" error or MIME type error
+→ Make sure BOTH commands are set:
+- Build Command: `node generate-config.js`
+- Start Command: `node server.js`
+
+### "MIME type 'text/plain' is not executable"
+→ This means the Start Command isn't set to `node server.js`. Update it in Settings.
 
 ---
 
