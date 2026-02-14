@@ -379,8 +379,8 @@ async function fetchBlessings() {
         const { data, error } = await supabaseClient
             .from('blessings')
             .select('*')
-            .order('created_at', { ascending: false })
-            .limit(20);
+            .order('created_at', { ascending: true })
+            .limit(3);
 
         if (data) {
             const feed = document.getElementById('blessings-feed');

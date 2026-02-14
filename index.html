@@ -58,7 +58,7 @@
             class="px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-teatro-gold text-teatro-dark font-bold shadow-lg transform scale-105">EN</button>
         <button onclick="setLanguage('ur')" id="lang-ur"
             class="px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-white/50 text-teatro-warm hover:bg-white hover:text-teatro-gold">UR</button>
-            <button onclick="setLanguage('hi')" id="lang-hi"
+        <button onclick="setLanguage('hi')" id="lang-hi"
             class="px-3 py-1 rounded-full text-xs font-serif transition-all duration-300 bg-white/50 text-teatro-warm hover:bg-white hover:text-teatro-gold">HI</button>
     </div>
 
@@ -106,17 +106,17 @@
                 </div>
 
                 <div class="font-sans text-teatro-warm uppercase tracking-[0.2em] text-xs md:text-sm">
-                     Mr. & Mrs. Qamrul Hasan 
+                    Mr. & Mrs. Qamrul Hasan
                 </div>
 
                 <h2 class="font-serif text-2xl md:text-2.5xl text-teatro-beige/90 leading-relaxed px-4"
                     data-i18n="hero.request">
-                    Request the Honor of Your Presence and Blessings on the Auspicious Occasion of the Wedding Ceremony of their Beloved Granddaughter
+                    Request the Honor of Your Presence and Blessings on the Auspicious Occasion of the Wedding Ceremony
+                    of their Beloved Granddaughter
                 </h2>
 
                 <div class="space-y-6 pt-4">
-                    <div
-                        class="font-serif text-5xl md:text-7xl lg:text-8xl text-teatro-gold gold-gradient-text transform hover:scale-105 transition-transform duration-700 cursor-default"
+                    <div class="font-serif text-5xl md:text-7xl lg:text-8xl text-teatro-gold gold-gradient-text transform hover:scale-105 transition-transform duration-700 cursor-default"
                         data-i18n="hero.bridename">
                         Samra Fatima
                     </div>
@@ -126,8 +126,7 @@
                     <div class="font-serif text-2xl md:text-4xl text-teatro-beige/60 italic">
                         &
                     </div>
-                    <div
-                        class="font-serif text-5xl md:text-7xl lg:text-8xl text-teatro-gold gold-gradient-text transform hover:scale-105 transition-transform duration-700 cursor-default"
+                    <div class="font-serif text-5xl md:text-7xl lg:text-8xl text-teatro-gold gold-gradient-text transform hover:scale-105 transition-transform duration-700 cursor-default"
                         data-i18n="hero.groomname">
                         Abdul Sattar
                     </div>
@@ -285,7 +284,7 @@
                     class="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-teatro-gold/20 to-transparent -translate-x-1/2 hidden md:block">
                 </div>
 
-                
+
 
                 <!-- Blessings Wall -->
                 <section class="glass-panel p-8 rounded-xl md:p-10 space-y-8 flex flex-col h-full bg-white/70">
@@ -390,7 +389,7 @@
                 </div>
             </section>
         </div>
-       
+
         <footer
             class="py-8 text-center text-teatro-beige/30 text-xs uppercase tracking-widest border-t border-teatro-primary mt-20">
             Invited with Love
@@ -399,13 +398,17 @@
 
     <!-- App Logic -->
     <script src="config.js"></script>
+    <script>
+        console.log("Config loaded status:", window.CONFIG ? "✅ Loaded" : "❌ Not Loaded");
+        if (window.CONFIG) console.log("Supabase URL:", window.CONFIG.SUPABASE_URL);
+    </script>
     <script src="script.js"></script>
 </body>
 
 </html>
 
 
- <!-- Song Request
+<!-- Song Request
                 <section class="glass-panel p-8 rounded-xl md:p-10 space-y-6 relative overflow-hidden group">
                     <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
                         <i data-lucide="music" class="w-20 h-20"></i>
